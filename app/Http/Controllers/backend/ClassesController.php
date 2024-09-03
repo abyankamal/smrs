@@ -27,4 +27,9 @@ class ClassesController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+
+    public function ManageClass()
+    {
+        return view('backend.classes.manage_class');
+    }
 }
