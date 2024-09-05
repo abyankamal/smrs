@@ -30,6 +30,7 @@ class ClassesController extends Controller
 
     public function ManageClass()
     {
-        return view('backend.classes.manage_class');
+        $classes = Classes::all();
+        return view('backend.classes.manage_class', compact('classes'));
     }
 }
