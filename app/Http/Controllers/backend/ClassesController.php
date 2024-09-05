@@ -33,4 +33,22 @@ class ClassesController extends Controller
         $classes = Classes::all();
         return view('backend.classes.manage_class', compact('classes'));
     }
+
+    public function EditClass($id)
+    {
+        $class = Classes::find($id);
+        return view('backend.classes.update', compact('class'));
+    }
+
+    public function UpdateClass(Request $request)
+    {
+        $id = $request->id;
+        Classes::find($id)->update($request->all());
+
+        $notification = array(
+            'message' => 'Classes Update Succesfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('manage.class')->with($notification);
+    }
 }

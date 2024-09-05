@@ -49,9 +49,9 @@
                                 <td>{{$class->section}}</td>
                                 <td>{{$class->created_at}}</td>
                                 <td style="text-align: center; font-size: 20px;">
-                                    <a href="javascript: void(0);" style="color: #444; margin-right: 20px;"><i class="fas fa-edit"></i>Edit</a>
+                                    <a href="{{route('edit.class', $class->id)}}" style="color: #444; margin-right: 20px;"><i class="fas fa-edit"></i></a>
                                     <a href="javascript: void(0);" style="color: #444;">
-                                        <i class="fas fa-trash-alt"></i>Delete
+                                        <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>
