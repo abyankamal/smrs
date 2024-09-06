@@ -40,7 +40,7 @@ class SubjectController extends Controller
 
     public function Editsubject($id)
     {
-        $subject = subjectes::find($id);
+        $subject = Subject::find($id);
         return view('backend.subjects.update', compact('subject'));
     }
 
@@ -65,4 +65,5 @@ class SubjectController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
+    }
 }
