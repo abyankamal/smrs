@@ -51,4 +51,15 @@ class ClassesController extends Controller
         );
         return redirect()->route('manage.class')->with($notification);
     }
+
+    public function DeleteClass($id)
+    {
+        Classes::find($id)->delete();
+
+        $notification = array(
+            'message' => 'Classes Delete Succesfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
 }

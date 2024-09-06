@@ -50,7 +50,7 @@
                                 <td>{{$class->created_at}}</td>
                                 <td style="text-align: center; font-size: 20px;">
                                     <a href="{{route('edit.class', $class->id)}}" style="color: #444; margin-right: 20px;"><i class="fas fa-edit"></i></a>
-                                    <a href="javascript: void(0);" style="color: #444;">
+                                    <a href="{{route('delete.class', $class->id)}}" id="delete" style="color: #444;">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
