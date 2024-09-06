@@ -25,7 +25,7 @@ class ClassesController extends Controller
             'message' => 'Classes Create Succesfully',
             'alert-type' => 'success'
         );
-        return redirect()->back()->with($notification);
+        return redirect()->route('manage.class')->with($notification);
     }
 
     public function ManageClass()

@@ -32,7 +32,12 @@ Route::controller(ClassesController::class)->group(function () {
 });
 
 Route::controller(SubjectController::class)->group(function () {
-    Route::get('create/subject', [SubjectController::class, 'CreateClass'])->name('create.subject');
+    Route::get('create/subject', [SubjectController::class, 'CreateSubject'])->name('create.subject');
+    Route::post('create/subject', [SubjectController::class, 'StoreSubject'])->name('store.subject');
+    Route::get('manage/subject', [SubjectController::class, 'ManageSubject'])->name('manage.subject');
+    Route::get('edit/subject/{id}', [SubjectController::class, 'EditSubject'])->name('edit.subject');
+    Route::post('update/subject', [SubjectController::class, 'UpdateSubject'])->name('update.subject');
+    Route::get('delete/subject/{id}', [SubjectController::class, 'DeleteSubject'])->name('edit.subject');
 });
 
 Route::middleware('auth')->group(function () {
