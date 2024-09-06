@@ -8,4 +8,8 @@ use Illuminate\Http\Request;
 class SubjectController extends Controller
 {
     //
+    public function CreateSubject()
+    {
+        return view('backend.subjects.create');
+    }
 }

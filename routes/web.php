@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\ClassesController;
+use App\Http\Controllers\backend\SubjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,10 @@ Route::controller(ClassesController::class)->group(function () {
     Route::get('edit/class/{id}', [ClassesController::class, 'EditClass'])->name('edit.class');
     Route::post('update/class', [ClassesController::class, 'UpdateClass'])->name('update.class');
     Route::get('delete/class/{id}', [ClassesController::class, 'DeleteClass'])->name('edit.class');
+});
+
+Route::controller(SubjectController::class)->group(function () {
+    Route::get('create/subject', [SubjectController::class, 'CreateClass'])->name('create.subject');
 });
 
 Route::middleware('auth')->group(function () {
