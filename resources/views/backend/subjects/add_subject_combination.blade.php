@@ -29,7 +29,7 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Select</label>
                             <div class="col-sm-10">
-                                <select class="form-select" aria-label="Default select example">
+                                <select name="class_id" class="form-select" aria-label="Default select example">
                                     <option selected="">-- Select Class</option>
                                     @foreach ($classes as $class)
                                     <option value="{{$class->id}}">{{$class->class_name}}</option>

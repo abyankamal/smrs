@@ -42,6 +42,7 @@ Route::controller(SubjectController::class)->group(function () {
     // Subject Combination All Routes
     Route::get('add/subject/combination', [SubjectController::class, 'AddSubjectCombination'])->name('add.subject.combination');
     Route::post('add/subject/combination', [SubjectController::class, 'StoreSubjectCombination'])->name('store.subject.combination');
+    Route::get('manage/subject/combination', [SubjectController::class, 'ManageSubjectCombination'])->name('manage.subject.combination');
 });
 
 Route::middleware('auth')->group(function () {
