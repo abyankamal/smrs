@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\classes;
+use App\Models\Classes;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -93,10 +93,36 @@ class SubjectController extends Controller
     public function ManageSubjectCombination()
     {
         $results = DB::table('classes_subject')
-            ->join('classes', 'classes_subject.classes_id', 'classes.id')
-            ->join('subjects', 'classes_subject.subjects_id', 'subjects.id')
-            ->select('classes_subject.*', 'classes.class_name', 'classes.section', 'subjects.subject_name');
+            ->join('classes', 'classes_subject.classes_id', '=', 'classes.id')
+            ->join('subjects', 'classes_subject.subjects_id', '=', 'subjects.id')
+            ->select(
+                'classes_subject.*',
+                'classes.class_name as class_name',
+                'classes.section as section',
+                'subjects.subject_name as subject_name'
+            )
+            ->get();
 
         return view('backend.subjects.manage_subject_combination', compact('results'));
+    }
+
+    public function DeactivateSubjectCombination($id)
+    {
+        $results = DB::table('classes_subject')->select('status')->where('id', $id)->first();
+        if ($results->status == 1) {
+            DB::table('classes_subject')->select('status')->where('id', $id)->update(['status' => 0]);
+            $notification = array(
+                'message' => 'Subject De-Activate Succesfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        } else {
+            DB::table('classes_subject')->select('status')->where('id', $id)->update(['status' => 1]);
+            $notification = array(
+                'message' => 'Subject Activate Succesfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        }
     }
 }

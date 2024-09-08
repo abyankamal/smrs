@@ -55,7 +55,11 @@
                                     @endif
                                 </td>
                                 <td style="text-align: center; font-size: 20px;">
-                                    <a href="{{route('edit.subject', $subject->id)}}" style="color: #444; margin-right: 20px;"><i class="fas fa-check"></i></a>
+                                    @if ($result->status == 1)
+                                    <a href="{{route('deactivate.subject.combination', $result->id)}}" style="color: #444; margin-right: 20px;"><i class="fas fa-check"></i></a>
+                                    @else
+                                    <a href="{{route('deactivate.subject.combination', $result->id)}}" style="color: #444; margin-right: 20px;"><i class="fas fa-times"></i></a>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach
