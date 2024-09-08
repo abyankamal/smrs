@@ -24,7 +24,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Add Subject Combination</h4>
-                    <form action="{{ route('store.subject') }}" method="post">
+                    <form action="{{ route('store.subject.combination') }}" method="post">
                         @csrf
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Select</label>
