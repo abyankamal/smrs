@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\classes;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 
@@ -65,5 +66,13 @@ class SubjectController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
+    }
+
+    public function AddSubjectCombination()
+    {
+        $classes = Classes::all();
+        $subjects = Subject::all();
+
+        return view('backend.subjects.add_subject_combination', compact('classes', 'subjects'));
     }
 }

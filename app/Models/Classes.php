@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class classes extends Model
+class Classes extends Model
 {
     use HasFactory;
 
@@ -13,4 +14,9 @@ class classes extends Model
         'class_name',
         'section',
     ];
+
+    public function subjects(): BelongsToMany
+    {
+        return $this->belongsToMany(Subject::class, 'classes_subject', 'classes_id', 'subjects_id')->withPivot('status');
+    }
 }
