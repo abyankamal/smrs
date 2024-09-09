@@ -50,6 +50,10 @@ Route::controller(SubjectController::class)->group(function () {
 Route::controller(StudentController::class)->group(function () {
     Route::get('add/student', [StudentController::class, 'AddStudent'])->name('add.student');
     Route::post('add/student', [StudentController::class, 'StoreStudent'])->name('store.student');
+    Route::get('manage/subject', [SubjectController::class, 'ManageStudent'])->name('manage.student');
+    Route::get('edit/student/{id}', [StudentController::class, 'EditStudent'])->name('edit.student');
+    Route::post('update/student', [StudentController::class, 'UpdateStudent'])->name('update.student');
+    Route::get('delete/student/{id}', [StudentController::class, 'DeleteStudent'])->name('delete.student');
 });
 
 Route::middleware('auth')->group(function () {
