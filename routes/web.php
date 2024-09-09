@@ -59,7 +59,14 @@ Route::controller(StudentController::class)->group(function () {
 
 Route::controller(ResultController::class)->group(function () {
     Route::get('add/result', [ResultController::class, 'AddResult'])->name('add.result');
+    Route::post('add/result', [ResultController::class, 'StoreResult'])->name('store.result');
+
+
+
+
+    // fetch the result
     Route::get('fetch/student', [ResultController::class, 'FetchStudent'])->name('fetch.student');
+    Route::get('fetch/student/result', [ResultController::class, 'FetchStudentResult'])->name('check.student.result');
 });
 
 

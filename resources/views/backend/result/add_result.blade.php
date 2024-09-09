@@ -91,6 +91,7 @@
 
         $('#student').change(function() {
             let student_id = $(this).val()
+            let _token = "{{ csrf_token() }}";
             $.ajax({
                 url: "{{ route('check.student.result') }}",
                 method: "GET",
@@ -100,7 +101,7 @@
                     _token: _token
                 },
                 success: function(result) {
-                    $('#alert').html(result)
+                    $('#alert').html(result.message)
                 }
             });
         })

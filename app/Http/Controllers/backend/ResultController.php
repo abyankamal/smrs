@@ -45,10 +45,29 @@ class ResultController extends Controller
         if ($result) {
             $message = '<div class="alert alert-primary alert-dismissible fade show" role="alert">
                                                 <i class="mdi mdi-bullseye-arrow me-2"></i>
-                                                A simple primary alert—check it out!
+                                                The Result Of The Student Has Already Declared!
                                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                             </div>';
         }
         return response()->json(['message' => $message]);
+    }
+
+    public function StoreResult(Request $request)
+    {
+        $sub_count = count($request->subject_id);
+        for ($i = 0; $i < $sub_count; $i++) {
+            $result = [
+                'student_id' => $request->student_id,
+                'class_id' => $request->class_id,
+                'subject_id' => $request->subject_id[$i],
+                'marks' => $request->marks[$i]
+            ];
+            Result::create($result);
+        }
+        $notification = array(
+            'message' => 'Result Declared Succesfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
 }
