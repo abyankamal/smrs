@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\ClassesController;
+use App\Http\Controllers\backend\ResultController;
 use App\Http\Controllers\backend\StudentController;
 use App\Http\Controllers\backend\SubjectController;
 use App\Http\Controllers\ProfileController;
@@ -50,11 +51,17 @@ Route::controller(SubjectController::class)->group(function () {
 Route::controller(StudentController::class)->group(function () {
     Route::get('add/student', [StudentController::class, 'AddStudent'])->name('add.student');
     Route::post('add/student', [StudentController::class, 'StoreStudent'])->name('store.student');
-    Route::get('manage/subject', [SubjectController::class, 'ManageStudent'])->name('manage.student');
+    Route::get('manage/student', [SubjectController::class, 'ManageStudent'])->name('manage.student');
     Route::get('edit/student/{id}', [StudentController::class, 'EditStudent'])->name('edit.student');
     Route::post('update/student', [StudentController::class, 'UpdateStudent'])->name('update.student');
     Route::get('delete/student/{id}', [StudentController::class, 'DeleteStudent'])->name('delete.student');
 });
+
+Route::controller(ResultController::class)->group(function () {
+    Route::get('add/result', [ResultController::class, 'AddResult'])->name('add.result');
+    Route::get('fetch/student', [ResultController::class, 'FetchStudent'])->name('fetch.student');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
