@@ -54,6 +54,17 @@
                         <li><a href="{{route('manage.subject.combination')}}">Manage Subject Combination</a></li>
                     </ul>
                 </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-account-circle-line"></i>
+                        <span>Student</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('add.student')}}">Create Student</a></li>
+                        <li><a href="{{route('manage.student')}}">Manage Student</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <!-- Sidebar -->

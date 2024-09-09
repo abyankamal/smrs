@@ -49,6 +49,7 @@ Route::controller(SubjectController::class)->group(function () {
 
 Route::controller(StudentController::class)->group(function () {
     Route::get('add/student', [StudentController::class, 'AddStudent'])->name('add.student');
+    Route::post('add/student', [StudentController::class, 'StoreStudent'])->name('store.student');
 });
 
 Route::middleware('auth')->group(function () {
