@@ -76,4 +76,38 @@ class ResultController extends Controller
         $results = Result::groupBy('student_id')->get();
         return view('backend.result.manage_result', compact('results'));
     }
+
+    public function EditResult($id)
+    {
+        $result = Result::where('student_id', $id)->get();
+        if (!$result) {
+            // Handle case if result is not found (optional)
+            $notification = array(
+                'message' => 'Id Not Found Succesfully',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }
+        return view('backend.result.edit_result', compact('result'));
+    }
+
+
+    public function UpdateResult(Request $request)
+    {
+        dd($request->all());
+        $sub_count = count($request->subject_id);
+        for ($i = 0; $i < $sub_count; $i++) {
+            $result = Result::where('id', $request->result_id[$i])->update(
+                [
+                    'student_id' => $request->student_id[$i],
+                    'marks' => $request->marks[$i]
+                ]
+            );
+        }
+        $notification = array(
+            'message' => 'Result Declared Succesfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
 }
