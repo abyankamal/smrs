@@ -60,7 +60,7 @@ Route::controller(StudentController::class)->group(function () {
 Route::controller(ResultController::class)->group(function () {
     Route::get('add/result', [ResultController::class, 'AddResult'])->name('add.result');
     Route::post('add/result', [ResultController::class, 'StoreResult'])->name('store.result');
-
+    Route::get('manage/result', [ResultController::class, 'ManageResult'])->name('manage.result');
 
 
 
