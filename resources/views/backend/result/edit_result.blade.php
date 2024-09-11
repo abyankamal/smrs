@@ -53,6 +53,7 @@
                                     <label for="{{$result[0]->subject->subject_name}}">{{$result[$i]->subject->subject_name}}</label>
                                     <input type="hidden" class="form-control" name="result_id[]" value="{{$result[$i]->id}}" type="hidden">
                                     <input type="hidden" class="form-control" name="subject_id[]" value="{{$result[$i]->subject->id}}" type="hidden">
+                                    <input type="hidden" class="form-control" name="student_id[]" value="{{$result[$i]->student->id}}" type="hidden">
                                     <input type="text" class="form-control" name="marks[]" required type="text" placeholder="Enter mark out of 100" value="{{$result[$i]->marks}}">
                                     @endfor
                             </div>

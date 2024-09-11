@@ -63,7 +63,7 @@ Route::controller(ResultController::class)->group(function () {
     Route::get('manage/result', [ResultController::class, 'ManageResult'])->name('manage.result');
     Route::get('edit/result/{id}', [ResultController::class, 'EditResult'])->name('edit.result');
     Route::post('update/result', [ResultController::class, 'UpdateResult'])->name('update.result');
-    // Route::get('delete/result/{id}', [ResultController::class, 'DeleteResult'])->name('delete.result');
+    Route::get('delete/result/{id}', [ResultController::class, 'DeleteResult'])->name('delete.result');
 
 
 
